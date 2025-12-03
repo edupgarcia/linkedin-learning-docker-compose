@@ -1,0 +1,18 @@
+version: "3.9"
+
+services:
+  storefront:
+    build:
+      context: .
+      args:
+        - region=us-east-1
+        - alice=0
+    environment:
+      - runtime_env=dev
+  database:
+    image: "mysql"
+    environment:
+      MYSQL_ROOT_PASSWORD: "password"
+      MYSQL_DATABASE: "storefront"
+      MYSQL_USER: "storefront"
+      MYSQL_PASSWORD: "password"
